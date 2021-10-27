@@ -22,6 +22,18 @@ export default function Crypto(props) {
       })
   }, [props.asset])
 
+  const refreshPrice = () => {
+    axios
+      .get(baseUrl + props.asset)
+      .then((res) => {
+        setValue(res.data)
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return (
     <div>
       {value.data ? (
@@ -34,7 +46,9 @@ export default function Crypto(props) {
           <p>{formatPercentage(value.data.changePercent24Hr)}%</p>
           <h4>Symbol: </h4>
           <p>{value.data.symbol}</p>
-          <Button variant="primary">Button</Button>
+          <Button variant="warning" onClick={refreshPrice}>
+            Refresh
+          </Button>
         </div>
       ) : (
         <div>
