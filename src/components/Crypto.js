@@ -4,9 +4,11 @@ import axios from 'axios'
 export default function Crypto(props) {
   const [value, setValue] = useState({})
 
+  const baseUrl = 'https://api.coincap.io/v2/assets/'
+
   useEffect(() => {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos/1')
+      .get(baseUrl + props.asset)
       .then((res) => {
         setValue(res.data)
         console.log(res.data)
@@ -14,10 +16,7 @@ export default function Crypto(props) {
       .catch((err) => {
         console.log(err)
       })
-      .finally(() => {
-        console.log('finally finished with GET')
-      })
-  }, [])
+  }, [props.asset])
 
   return <div>Bitcoin data coming!</div>
 }
