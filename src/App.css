@@ -1,0 +1,38 @@
+.App {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: dodgerblue;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  width: 20rem;
+  height: 26rem;
+  max-width: 80vw;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem 4rem;
+  margin: 1rem;
+}
+
+h4 {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.data {
+  font-size: 1.5rem;
+}
+
+.spinner {
+  margin-top: 50%;
+}

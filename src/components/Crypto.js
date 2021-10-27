@@ -51,7 +51,7 @@ export default function Crypto(props) {
           </Button>
         </div>
       ) : (
-        <div>
+        <div className="spinner text-center">
           <Button variant="warning" onClick={refreshPrice}>
             <Spinner
               as="span"
