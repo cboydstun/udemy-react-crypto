@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import { formatDollars, formatPercentage } from '../utils/format'
 
+import { Button } from 'react-bootstrap'
+
 export default function Crypto(props) {
   const [value, setValue] = useState({})
 
@@ -22,14 +24,23 @@ export default function Crypto(props) {
 
   return (
     <div>
-      <h4>Name: </h4>
-      <p>{value.data.name}</p>
-      <h4>Price: </h4>
-      <p>{formatDollars(value.data.priceUsd)}</p>
-      <h4>Change 24hr: </h4>
-      <p>{formatPercentage(value.data.changePercent24Hr)}%</p>
-      <h4>Symbol: </h4>
-      <p>{value.data.symbol}</p>
+      {value.data ? (
+        <div>
+          <h4>Name: </h4>
+          <p>{value.data.name}</p>
+          <h4>Price: </h4>
+          <p>{formatDollars(value.data.priceUsd)}</p>
+          <h4>Change 24hr: </h4>
+          <p>{formatPercentage(value.data.changePercent24Hr)}%</p>
+          <h4>Symbol: </h4>
+          <p>{value.data.symbol}</p>
+          <Button variant="primary">Button</Button>
+        </div>
+      ) : (
+        <div>
+          <h4>Loading...</h4>
+        </div>
+      )}
     </div>
   )
 }
