@@ -18,5 +18,16 @@ export default function Crypto(props) {
       })
   }, [props.asset])
 
-  return <div>Bitcoin data coming!</div>
+  return (
+    <div>
+      <h4>Name: </h4>
+      <p>{value.data.name}</p>
+      <h4>Price: </h4>
+      <p>{value.data.priceUsd}</p>
+      <h4>Change 24hr: </h4>
+      <p>{value.data.changePercent24Hr}%</p>
+      <h4>Symbol: </h4>
+      <p>{value.data.symbol}</p>
+    </div>
+  )
 }
