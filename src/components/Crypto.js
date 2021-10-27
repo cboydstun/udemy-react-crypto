@@ -1,15 +1,23 @@
+//import main dependencies
 import React, { useState, useEffect } from 'react'
+
+//import axios to make http requests
 import axios from 'axios'
 
+//import utilities to format numbers
 import { formatDollars, formatPercentage } from '../utils/format'
 
+//import bootstrap components
 import { Button, Spinner, Card } from 'react-bootstrap'
 
 export default function Crypto(props) {
+  //define initial object state
   const [value, setValue] = useState({})
 
+  //set base URL for API requests
   const baseUrl = 'https://api.coincap.io/v2/assets/'
 
+  //enable useEffect to fetch data from API
   useEffect(() => {
     axios
       .get(baseUrl + props.asset)
@@ -22,6 +30,7 @@ export default function Crypto(props) {
       })
   }, [props.asset])
 
+  //define function to refresh data
   const refreshPrice = () => {
     axios
       .get(baseUrl + props.asset)

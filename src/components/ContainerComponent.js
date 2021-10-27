@@ -1,13 +1,19 @@
+//declare main dependencies
 import React, { useState } from 'react'
+
+//import bootstrap components
 import { Container, Dropdown } from 'react-bootstrap'
 
+//import custom component
 import Crypto from './Crypto'
 
 export default function ContainerComponent() {
+  //set state
   const [value, setValue] = useState('bitcoin')
 
   return (
     <Container>
+      {/* dropdown to select different values */}
       <Dropdown>
         <Dropdown.Toggle variant="warning" id="dropdown-basic">
           Select Blockchain Asset
@@ -32,6 +38,7 @@ export default function ContainerComponent() {
         </Dropdown.Menu>
       </Dropdown>
 
+      {/* render Crypto component */}
       <Crypto asset={value} />
     </Container>
   )
