@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ContainerComponent from './components/ContainerComponent'
+
 export default function App() {
-  return <div>hey from app</div>
+  return <ContainerComponent />
 }
