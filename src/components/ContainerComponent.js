@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Dropdown } from 'react-bootstrap'
+import { Dropdown } from 'react-bootstrap'
 
 import Crypto from './Crypto'
 
@@ -7,7 +7,7 @@ export default function ContainerComponent() {
   const [value, setValue] = useState('bitcoin')
 
   return (
-    <Container>
+    <div>
       <Dropdown>
         <Dropdown.Toggle variant="warning" id="dropdown-basic">
           Select Blockchain Asset
@@ -33,6 +33,6 @@ export default function ContainerComponent() {
       </Dropdown>
 
       <Crypto asset={value} />
-    </Container>
+    </div>
   )
 }
