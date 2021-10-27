@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { formatDollars, formatPercentage } from '../utils/format'
 
-import { Button } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
 
 export default function Crypto(props) {
   const [value, setValue] = useState({})
@@ -52,7 +52,16 @@ export default function Crypto(props) {
         </div>
       ) : (
         <div>
-          <h4>Loading...</h4>
+          <Button variant="warning" onClick={refreshPrice}>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
         </div>
       )}
     </div>
