@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export default function Crypto(props) {
-  const [value, setValue] = useState(props.asset)
+  const [value, setValue] = useState({})
 
   useEffect(() => {
-    document.title = `We want ${value}`
-  }, [value])
+    axios
+      .get('https://jsonplaceholder.typicode.com/todos/1')
+      .then((res) => {
+        setValue(res.data)
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      .finally(() => {
+        console.log('finally finished with GET')
+      })
+  }, [])
 
-  return (
-    <div>
-      <h1>We want {value}!</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </div>
-  )
+  return <div>Bitcoin data coming!</div>
 }
