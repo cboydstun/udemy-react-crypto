@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import { formatDollars, formatPercentage } from '../utils/format'
+
 export default function Crypto(props) {
   const [value, setValue] = useState({})
 
@@ -23,9 +25,9 @@ export default function Crypto(props) {
       <h4>Name: </h4>
       <p>{value.data.name}</p>
       <h4>Price: </h4>
-      <p>{value.data.priceUsd}</p>
+      <p>{formatDollars(value.data.priceUsd)}</p>
       <h4>Change 24hr: </h4>
-      <p>{value.data.changePercent24Hr}%</p>
+      <p>{formatPercentage(value.data.changePercent24Hr)}%</p>
       <h4>Symbol: </h4>
       <p>{value.data.symbol}</p>
     </div>
